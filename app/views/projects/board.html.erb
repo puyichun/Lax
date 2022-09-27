@@ -43,16 +43,17 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-col flex-1 p-3 overflow-auto rounded-lg gap-y-2 status_list" data-column-id="<%= column.id%>">
-          <div class="card-list" data-board-target="status_list" data-column-id="<%= column.id%>">
-            <%= render "card", column: column, user: @user%>
-          </div>
-          <button data-action="click->task#display_change" class="flex items-center justify-center flex-shrink-0 w-full font-medium transition-all rounded new_task text-ml h-7 text-icon hover:bg-hover hover:text-black">
+        <div class="flex flex-col flex-1 p-3 overflow-auto rounded-lg gap-y-2 status_list card-list" data-column-id="<%= column.id%>"data-board-target="status_list">
+    
+             <button data-action="click->task#display_change" class="flex items-center justify-center flex-shrink-0 w-full font-medium transition-all rounded new_task text-ml h-7 text-icon hover:bg-hover hover:text-black">
             <svg class="mr-2 fill-current" height="12" focusable="false" viewBox="0 0 24 24">
               <path d="M10,10V4c0-1.1,0.9-2,2-2s2,0.9,2,2v6h6c1.1,0,2,0.9,2,2s-0.9,2-2,2h-6v6c0,1.1-0.9,2-2,2s-2-0.9-2-2v-6H4c-1.1,0-2-0.9-2-2s0.9-2,2-2H10z"></path>
             </svg>
             新增任務
           </button>
+            <%= render "card", column: column, user: @user%>
+   
+       
         </div>
       </div>
     <% end %>
