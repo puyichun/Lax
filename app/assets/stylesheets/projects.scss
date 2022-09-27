@@ -167,3 +167,12 @@ input[type='text']{
 .progress{
   width: 1100px;
 }
+.delay_task{
+  display: none;
+  position: relative;
+  background-color: white;
+  width: 477px;
+  right: 18px;
+  top: 10px;
+  z-index: 10;
+}

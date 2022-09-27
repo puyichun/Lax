@@ -13,7 +13,17 @@
 >
   <div class="h-40 p-4 m-3 text-2xl font-semibold text-center border-2 rounded-md task_count">已完成的任務 <span class="block mt-3 text-6xl"><%= @task_done %></span></div>
   <div class="h-40 p-4 m-3 text-2xl font-semibold text-center border-2 rounded-md task_count">未完成的任務 <span class="block mt-3 text-6xl"><%= @task_doing %></span></div>
-  <div class="h-40 p-4 m-3 text-2xl font-semibold text-center border-2 rounded-md task_count">逾期的任務 <span class="block mt-3 text-6xl"><%= @delay %></span></div>
+  <div class="h-40 p-4 m-3 text-2xl font-semibold text-center border-2 rounded-md task_count">逾期的任務 <span class="block mt-3 text-6xl"><%= @delay.count %></span>
+  <button data-action="click->progress#show_delay" class="text-sm font-semibold text-gray-700">顯示已逾期任務</button>
+  <div class="p-6 border-2 rounded-lg delay_task" data-progress-target="delay_task">
+  <button class="absolute top-2 right-2" data-action="click->progress#close_delay">X</button>
+    <% @delay.each do |task| %>
+    <ul class="my-6">
+      <li class="text-red-500"><%= task.title %> <%= task.end_time.localtime.strftime('%m月%d日') %></li>
+    </ul>
+    <% end  %>
+  </div>
+  </div>
   <div class="h-40 p-4 m-3 text-2xl font-semibold text-center border-2 rounded-md task_count">任務總計 <span class="block mt-3 text-6xl"><%= @task_sum %></span></div>
   <div class="flex flex-col justify-between p-4 m-3 border-2 rounded-md chart">
     <h3 class="py-2 text-lg font-medium">專案成員未完成的任務</h3>

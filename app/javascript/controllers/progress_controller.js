@@ -5,7 +5,7 @@ import Rails from '@rails/ujs';
 
 
 export default class extends Controller {
-  static targets =  ["done_value","bar","doughnut"]
+  static targets =  ["done_value","bar","doughnut","delay_task"]
   connect(){
     const doughnut_data =[this.element.dataset.taskDone,this.element.dataset.taskDoing]
     const projectID = this.element.dataset.projectId;
@@ -73,5 +73,11 @@ export default class extends Controller {
         }]
       }
     });
+  }
+  show_delay(){
+    this.delay_taskTarget.style.display = "block"
+  }
+  close_delay(){
+    this.delay_taskTarget.style.display = "none"
   }
 }
