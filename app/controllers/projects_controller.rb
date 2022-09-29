@@ -74,7 +74,8 @@ class ProjectsController < ApplicationController
   def board
     @new_task = Task.new
     @new_column = Column.new
-    @columns = @project.columns.order(position: :asc)
+    @columns = @project.columns.includes(:tasks
+    ).order(position: :asc)
     @user = @project.users
   end
 
